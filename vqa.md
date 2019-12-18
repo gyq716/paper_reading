@@ -64,5 +64,3 @@ VQA数据集中得image 来自于MSCOCO，作者对coco中的object种类进行k
 
 作者没放出代码也无第三方实现
 
-![image-20191218112412797](vqa.assets/image-20191218112412797.png)
-
