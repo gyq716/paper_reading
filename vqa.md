@@ -4,37 +4,31 @@
 
 ### **1.解决的问题和主要贡献**
 
-> **这篇论文解决的是关于novel concept的open world VQA问题**，**现有的VQA模型在‘known’ visual content上面可以取得很好的效果，但是一个实际应用的VQA系统应该能够很好的处理novel concept，这篇文章提出了一种方法，来提高模型在open world上面的表现。主要贡献如下：**
+> **这篇论文解决的是关于novel concept的open world VQA问题**，**现有的VQA模型在‘known’ visual content上面可以取得很好的效果，但是一个实际应用的VQA系统应该能够很好的处理novel concept，这篇文章提出了一种方法，来提高模型在open world上面的表现。主要贡献其实就一个：**
 
-- **We reformulate VQA in a transfer learning setup that uses closely related Known instances from the exem- plar set to reason about Unknown concepts.**
+- 论文相比于ICCV 2017 https://arxiv.org/abs/1705.06676 的改进之处在于加入了exemplar transfer learning，通过与unknown concept相似的known concept来对visual content进行refine，来提升模型对于unknown concept的效果
 
-- **We present a novel network architecture and training schedule that maintains a knowledge base of exem- plars in a rich joint embedding space that aggregates visual and semantic information.**
+  ![image-20191218080144411](./vqa.assets/image-20191218080144411.png)
 
-- **We propose a hierarchical search and retrieval scheme to enable efficient exemplar matching on a high dimen- sional joint embedding space.**
-
-- **We propose a new OW-VQA split to enable impartial evaluation of VQA algorithms in a real-world scenario and report impressive improvements over recent ap- proaches with our proposed model.**
-
-  ![image-20191218080144411](F:\paper_reading\vqa.assets\image-20191218080144411.png)
 
 ### **2.方法**
 
-![image-20191218081357318](F:\paper_reading\vqa.assets\image-20191218081357318.png)
+![image-20191218081357318](./vqa.assets/image-20191218081357318.png)
 
 <center>模型整体框架</center>
-
 #### 2.1 Joint Feature Embedding
 
-![image-20191218090333198](F:\paper_reading\vqa.assets\image-20191218090333198.png)
+![image-20191218090333198](./vqa.assets/image-20191218090333198.png)
 
-![image-20191218090358657](F:\paper_reading\vqa.assets\image-20191218090358657.png)
+![image-20191218090358657](./vqa.assets/image-20191218090358657.png)
 
 VQA模型需要根据visual feature和question feature产生一个joint embedding
 
-![image-20191218090606935](F:\paper_reading\vqa.assets\image-20191218090606935.png)
+![image-20191218090606935](./vqa.assets/image-20191218090606935.png)
 
 为了减少模型参数数量，作者在这里采用tucker decomposition来做，tucker分解相当于高维的PCA，起到对tensor的降维作用，关于tucker decomposition，可以参考https://arxiv.org/abs/1705.06676
 
-![image-20191218090719859](F:\paper_reading\vqa.assets\image-20191218090719859.png)
+![image-20191218090719859](./vqa.assets/image-20191218090719859.png)
 
 
 
@@ -48,7 +42,7 @@ VQA模型需要根据visual feature和question feature产生一个joint embeddin
 
 two level of attention in the entire network，joint embedding e用来对visual feature进行一个attention，第二个是根据exemplar e，find the most similar exemplar进行一个类似的attention，以达到对visual content的refine
 
-![image-20191218102001321](F:\paper_reading\vqa.assets\image-20191218102001321.png)
+![image-20191218102001321](./vqa.assets/image-20191218102001321.png)
 
 ### **3. 数据集的划分**
 
@@ -58,7 +52,7 @@ VQA数据集中得image 来自于MSCOCO，作者对coco中的object种类进行k
 
 在每一个super category中，choose the rarest category as unknown
 
-![image-20191218103006737](F:\paper_reading\vqa.assets\image-20191218103006737.png)
+![image-20191218103006737](./vqa.assets/image-20191218103006737.png)
 
 
 
@@ -70,9 +64,5 @@ VQA数据集中得image 来自于MSCOCO，作者对coco中的object种类进行k
 
 作者没放出代码也无第三方实现
 
-
-
-
-
-
+![image-20191218112412797](vqa.assets/image-20191218112412797.png)
 
