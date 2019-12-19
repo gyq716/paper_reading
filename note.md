@@ -1,15 +1,21 @@
-## 19.12.17
+# paper list
 
-### paper list for scene graph generation
+## 19.12.18
 
-#### 2017
+## 19.12.19
 
-1. Scene Graph Generation from Objects, Phrases and Region Captions
-2. Neural Motifs: Scene Graph Parsing with Global Context
+### Scene Graph Generation from Objects, Phrases and Region Captions
 
-#### 2018
+Yikang Li1, Wanli Ouyang1,2, Bolei Zhou3, Kun Wang1, Xiaogang Wang1 1The Chinese University of Hong Kong, Hong Kong SAR, China
+2University of Sydney, Australia 3Massachusetts Institute of Technology, USA
 
-1. Graph R-CNN for Scene Graph Generation
-2. Factorizable Net: An Efficient Subgraph-based Framework for Scene Graph Generation
-3. 
+###
+
+# note
+
+## Scene graph generation
+
+### Scene Graph Generation from Objects, Phrases and Region Captions
+
+
 
